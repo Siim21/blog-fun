@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 8vmin 4vmin 4vmin;
 }
 
 .gh-foot .gh-container {
@@ -48,6 +47,13 @@
     font-size: 1.5rem;
     text-align: center;
     opacity: 0.75;
+}
+
+.gh-foot img {
+    width: 100%;
+    height: 1100px;
+    object-fit: cover;
+    display: block;
 }
 
 @media (max-width: 700px) {
