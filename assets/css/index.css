@@ -35,7 +35,12 @@ html,
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #ffffff;
+
+    background-image: url("../repeating_image2v9.png");
+    background-repeat: repeat;
+    background-size: 60vw auto;
+    
+
 }
 
 .gh-main {
@@ -87,6 +92,19 @@ html,
 
 .gh-head-actions a:last-child svg {
     height: 2rem;
+}
+
+.transition {
+    position: relative;
+    height: 250px;
+
+}
+.transition::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, #ffffff 100%);
+    pointer-events: none;
 }
 
 /* Index

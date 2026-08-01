@@ -2,62 +2,29 @@
 /* ---------------------------------------------------------- */
 
 .gh-foot {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gh-foot .gh-container {
-    width: auto;
-}
-
-.gh-foot a {
-    color: inherit;
-}
-
-.gh-foot-menu {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.gh-foot-menu .nav {
-    display: inline-flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    list-style: none;
-    font-size: 1.8rem;
-}
-
-.gh-foot-menu .nav li {
-    margin: 0 1.5vmin;
-    padding: 0;
-}
-
-.gh-foot-menu .nav a {
-    display: inline-block;
-    padding: 3px 0;
-    text-decoration: none;
-    box-shadow: 0 -1px 0 0 currentcolor inset;
-}
-
-.gh-foot-meta {
-    margin: 2rem 0;
-    font-size: 1.5rem;
-    text-align: center;
-    opacity: 0.75;
+  position: relative; /* anchors the ::after fade to this element */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* keeps the fade from leaking outside the footer */
 }
 
 .gh-foot img {
-    width: 100%;
-    height: 1100px;
-    object-fit: cover;
-    display: block;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  display: block;
 }
 
-@media (max-width: 700px) {
-    .gh-foot-menu .nav {
-        font-size: 1.6rem;
-    }
+.gh-foot::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  background: linear-gradient(to bottom, #ffffff 0%, rgba(255, 255, 255, 0) 90%);
+  pointer-events: none;
+  z-index: 1; /* sits above the img so the fade is visible */
 }
+
