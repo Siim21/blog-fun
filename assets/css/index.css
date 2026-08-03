@@ -43,6 +43,18 @@ html,
 
 }
 
+.site-frame {
+    max-width: 720px;
+    margin: 0 auto;
+    background: rgba(226, 248, 255, 0.7);
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 .gh-main {
     flex: 1 0 auto;
     display: flex;
@@ -60,8 +72,9 @@ html,
 .gh-postfeed {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(min(350px, 100%), 1fr));
-    gap: 4.8vmin 4vmin;
-    padding: 8vmin 0;
+    gap: 3.8vmin 4vmin;
+    padding-top: 2vmin;
+    padding-bottom: 1vmin;
 }
 
 .gh-postfeed > *:first-child {
@@ -107,6 +120,33 @@ html,
     pointer-events: none;
 }
 
+.flying-seagull {
+    position: absolute;
+    left: -50px;
+    width: 80px;
+    height: 80px;
+    background-image: url('../flying_seagull.gif');
+    background-size: cover;
+    cursor: pointer;
+    animation: fly-across 8s linear forwards;
+}
+
+.flying-seagull.falling {
+    animation: fall 1.5s ease-in forwards;
+}
+
+@keyframes fly-across {
+    from { left: -50px; }
+    to { left: 110vw; }
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh) rotate(90deg);
+        opacity: 0;
+    }
+}
+
 /* Index
 /* ---------------------------------------------------------- */
 
@@ -114,55 +154,95 @@ html,
     margin: 8vmin auto 0;
 } */
 
-.gh-card-link {
+.main {
+    position: relative; /* anchors the pseudo-element below */
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+    background: rgba(219, 241, 249, 0.7);
+    padding-left: 10px;
+}
+
+.main::before {
+    content: "";
+    position: absolute;
+    top: -14px;
+    left: -28px;
+    right: -28px;
+    bottom: -28px; /* half of the 28px border-width — this is the key number */
+    border-image:  url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFQAAABUCAYAAAAcaxDBAAACq0lEQVR4Xu2cQZLDIAwEN/9/9G6uwVXumpKE7WznKkCoGQTGOK8f+P2+f1TmzP56/yr1yT+1v9avlqf2MFgKiGBRAFSf/FP7BGD1T+XJLtCFKAEju0C7gdKUoimZ2tcp2u1/OgWs8a7+Xt0BEWCBEqHQLtAQGBX/eqC0bSBAT7OnOZZy5mHVF+gnAVpTaIYdtk3U4NMUSQpLBSXQhdj4lKed/39TbDXewz6UJP30KU8pQKDFEe4WkApdjhfLCi0O8E+1A1X/V9c/PMtXOyTQzwN0PL4j4AIVKGkksuOUp30pebtasd2rNsUrUCIU2gUaAqPiAiVCoR2BVk9fwv7E+1g63CD/3TleoMWLG3QWgPtQGtHditntjxSvQu+uUJoCNMJX22kGUnz4TildlMjh1cDIv0CJUGgXaAiMio8DTR1Qh6urMrWf2rvjO6S8as6kgAQ6vK2gAZi2q9BmwuNApx1cva2aju9290ObBXhoTqDNhAUq0IzA7m3UtEIPa8R2h8tNjWw48tLb49vuUKC5Ks5qfP2U99GzWTACFWiJwPSaMf7Rwu6cSbTHgXY7uBvA3Smt/VtPgX75+acKpSRYtE+nuPGPFq5OAXTfNQVM8Qg0THkCXYBVbzgLdDfQ6VWw+k6pO8fRmlb1N/6kJNAwSdOIC1Sg0V/T4YXbNIekCiXFXu0/XVMEuhCjbRANsEAFWk0q5/XbFUqSng3nfq0TYOpx+3koOby7XaDNIyRQgTYT2NwcKdgcGg6IQENgVFygRCi0x0CrJ9ph/x5fHO/YCzQbY4FmvLC0QBFRVqB82kRJufs9OIWX9ofaq9rjd0ppANM5Oe1PFRjVFygRCu0CDYFRcXz0TKcUlacO0fkstU85fPVP/tby5F+g4Vtegb4JnM0KFRoCIkV1A/0DYf6gEokJc88AAAAASUVORK5CYII=') 28 /  28px / 0 round;
+    border-width:  14px;
+    border-style:  solid; 
+    image-rendering: pixelated;
+    pointer-events: none; /* so clicks pass through to the real content underneath */
+}
+
+
+.sidebar {
+    flex: 0 0 220px; /* keep the fixed width */
+    padding-bottom: 5px;
+}
+
+.sidebar .box {
+    height: 240px; /* taller than the postfeed boxes = more vertical proportion */
+    width: 100%;
+    margin-bottom: 5px;
+}
+.content {
+    flex: 1; /* takes up remaining space */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* spacing between boxes */
+}
+
+.profile-pic {
+    width: 200px;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-image: url('../spinning_seagull.gif');
+    background-size: 140%;
+}
+
+
+.box-title {
+    background: #d6eaf8;
+    border-left: 9px solid #f4c9c9;
+    padding: 5px 8px;
+    font-family: monospace; /* matches the pixel-y font in your screenshot */
+}
+
+.box {
+    background: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 120px;
+    width: 450px;
     display: flex;
     flex-direction: column;
 }
 
-.gh-card-image {
-    width: 100%;
-    /* max-height: 700px; */
-    object-fit: cover;
-    margin-bottom: 4vmin;
-    aspect-ratio: 1 / 1;
+.box-body {
+    padding: 8px;
+    line-height: 1.6;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
 }
 
-.gh-card-image:first-of-type {
-    aspect-ratio: 16 / 9;
-}
-
-
-.gh-card-meta {
-    display: block;
-    margin: 0 0 1rem;
-    font-size: 1.4rem;
-    line-height: 1.2em;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    opacity: 0.8;
-}
-
-.gh-card-content {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-    font-size: 1.6rem;
-}
-
-.gh-card-content p {
-    margin: 1.2rem 0;
-    padding: 0 3vmin;
-}
-
-.gh-card-content > strong {
-    display: inline-block;
-    padding: 1px 0;
-    font-weight: 500;
-    box-shadow: 0 -1px 0 0 inset currentColor;
-    opacity: 0.75;
+.box-body p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 
+.read-more {
+    margin-top: auto; /* pushes this element to the bottom of the flex column */
+    align-self: flex-end; /* pushes it to the right within that column */
+}
 /* Page
 /* ---------------------------------------------------------- */
 

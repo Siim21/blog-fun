@@ -1,6 +1,6 @@
-
-.gh-pagination .pagination {
+.pagination {
     display: flex;
-    justify-content: space-between;
-    margin-block: 4vmin;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
 }
