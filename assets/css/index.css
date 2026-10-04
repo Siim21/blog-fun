@@ -209,7 +209,7 @@ html,
     background: #d6eaf8;
     border-left: 9px solid #f4c9c9;
     padding: 5px 8px;
-    font-family: monospace; /* matches the pixel-y font in your screenshot */
+    font-family: monospace;
 }
 
 .box {
