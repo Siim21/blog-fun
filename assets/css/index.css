@@ -169,12 +169,8 @@ html,
 /* Index
 /* ---------------------------------------------------------- */
 
-/* .gh-card:not(:first-child) {
-    margin: 8vmin auto 0;
-} */
-
-.main {
-    position: relative; /* anchors the pseudo-element below */
+.home-layout {
+    position: relative;
     display: flex;
     gap: 10px;
     align-items: flex-start;
@@ -184,24 +180,25 @@ html,
 
 
 
-.sidebar {
-    flex: 0 0 220px; /* keep the fixed width */
+.home-sidebar {
+    flex: 0 0 220px;
     padding-bottom: 5px;
 }
 
-.sidebar .box {
-    height: 240px; /* taller than the postfeed boxes = more vertical proportion */
+.home-sidebar .home-panel,
+.home-sidebar .post-summary-card {
+    height: 240px;
     width: 100%;
     margin-bottom: 5px;
 }
-.content {
-    flex: 1; /* takes up remaining space */
+.home-posts {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 10px; /* spacing between boxes */
 }
 
-.profile-pic {
+.home-profile-image {
     width: 200px;
     aspect-ratio: 1 / 1;
     background-size: cover;
@@ -211,14 +208,16 @@ html,
 }
 
 
-.box-title {
+.home-panel-title,
+.post-summary-title {
     background: #d6eaf8;
     border-left: 9px solid #f4c9c9;
     padding: 5px 8px;
     font-family: monospace;
 }
 
-.box {
+.home-panel,
+.post-summary-card {
     background: #ffffff;
     border-radius: 4px;
     overflow: hidden;
@@ -228,7 +227,8 @@ html,
     flex-direction: column;
 }
 
-.box-body {
+.home-panel-body,
+.post-summary-body {
     padding: 8px;
     line-height: 1.6;
     flex: 1;
@@ -237,7 +237,8 @@ html,
     overflow: hidden;
 }
 
-.box-body p {
+.home-panel-body p,
+.post-summary-body p {
     display: -webkit-box;
     line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -245,9 +246,9 @@ html,
 }
 
 
-.read-more {
-    margin-top: auto; /* pushes this element to the bottom of the flex column */
-    align-self: flex-end; /* pushes it to the right within that column */
+.post-summary-link {
+    margin-top: auto;
+    align-self: flex-end;
 }
 /* Page
 /* ---------------------------------------------------------- */

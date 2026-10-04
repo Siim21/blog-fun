@@ -5,9 +5,7 @@ import "../css/index.css";
 
 // Import JS
 import menuOpen from "./menuOpen";
-import infiniteScroll from "./infiniteScroll";
 
 
-// Call the menu and infinite scroll functions
+// Initialize the mobile menu
 menuOpen();
-infiniteScroll();

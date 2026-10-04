@@ -1,29 +1,28 @@
 {{!< default}}
 
-<div class="content-box">
-  <div class="main">
+<div class="home-layout">
 
-    <aside class="sidebar">
+    <aside class="home-sidebar">
 
-      <div class="profile-pic"></div>
+      <div class="home-profile-image"></div>
 
-      <div class="box">
-        <div class="box-title">Title here</div>
-        <div class="box-body">
+      <div class="home-panel">
+        <div class="home-panel-title">Title here</div>
+        <div class="home-panel-body">
           <p>Bold text, italic text, link... your about blurb.</p>
         </div>
       </div>
 
       {{#get "posts" limit="1" page=pagination.page}}
         {{#foreach posts}}
-          <article class="box">
-            <div class="box-title">{{title}}</div>
-            <div class="box-body">
+          <article class="post-summary-card">
+            <div class="post-summary-title">{{title}}</div>
+            <div class="post-summary-body">
               <span class="gh-card-meta">
                 <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
               </span>
               <p>{{excerpt words="15"}}</p>
-              <a class="read-more" href="{{url}}">Read more</a>
+              <a class="post-summary-link" href="{{url}}">Read more</a>
             </div>
           </article>
         {{/foreach}}
@@ -31,18 +30,18 @@
 
     </aside>
 
-    <div class="content">
+    <div class="home-posts">
       <div class="gh-postfeed">
         {{#get "posts" limit="4" page=pagination.page offset="1"}}
           {{#foreach posts}}
-            <article class="box">
-              <div class="box-title">{{title}}</div>
-              <div class="box-body">
+            <article class="post-summary-card">
+              <div class="post-summary-title">{{title}}</div>
+              <div class="post-summary-body">
                 <span class="gh-card-meta">
                   <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="D MMM YYYY"}}</time>
                 </span>
                 <p>{{excerpt words="15"}}</p>
-                <a class="read-more" href="{{url}}">Read more</a>
+                <a class="post-summary-link" href="{{url}}">Read more</a>
               </div>
             </article>
           {{/foreach}}
@@ -54,5 +53,4 @@
     </div>
 
 
-  </div>
 </div>
