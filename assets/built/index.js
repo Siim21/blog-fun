@@ -1,2 +1,2 @@
-!function(){"use strict";!function(){const e=document.querySelector(".gh-burger");e&&e.addEventListener("click",function(){document.body.classList.toggle("gh-head-open")})}()}();
+!function(e,t){e&&!e.getElementById("livereloadscript")&&((t=e.createElement("script")).async=1,t.src="//"+(self.location.host||"localhost").split(":")[0]+":35729/livereload.js?snipver=1",t.id="livereloadscript",e.getElementsByTagName("head")[0].appendChild(t))}(self.document),function(){"use strict";!function(){const e=document.querySelector(".gh-burger");e&&e.addEventListener("click",function(){document.body.classList.toggle("gh-head-open")})}()}();
 //# sourceMappingURL=index.js.map

@@ -216,6 +216,14 @@ html,
     font-family: monospace;
 }
 
+
+.about-panel-title {
+    background: #d6eaf8;
+    border-left: 9px solid #f5e1bf;
+    padding: 5px 8px;
+    font-family: monospace;
+}
+
 .home-panel,
 .post-summary-card {
     background: #ffffff;
